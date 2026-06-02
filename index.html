@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Ma Little Boost</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #fff0f5;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: white;
+}
+
+h1 {
+  color: #ff69b4;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+.card {
+  background: #ffc0cb;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px gray;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.screen {
+  display: none;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #ff69b4;
+  color: white;
+  cursor: pointer;
+}
+
+textarea {
+  width: 90%;
+  height: 150px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.box {
+  background: white;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px gray;
+  text-align: right;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="title">🌸 Ma Little Boost 🐥</h1>
+
+<div id="home">
+  <div class="container">
+    <div class="card" onclick="show('hadith')">📖 الأحاديث</div>
+    <div class="card" onclick="show('azkar')">📿 الأذكار</div>
+    <div class="card" onclick="show('notes')">💬 الفضفضة</div>
+    <div class="card" onclick="show('settings')">⚙️ الإعدادات</div>
+    <div class="card" onclick="show('messages')">✉️ الرسائل</div>
+    <div class="card" onclick="show('notifications')">🔔 الإشعارات</div>
+    <div class="card" onclick="show('tasbih')">🔢 المسبحة</div>
+  </div>
+</div>
+
+<div id="messages" class="screen">
+<h2>✉️ الرسائل</h2>
+<div class="box">💪 أنتِ قوية وقادرة على تجاوز كل شيء</div>
+<div class="box">🌸 لا تستسلمي، القادم أجمل</div>
+<div class="box">🔥 تعبك اليوم هو نجاحك غدًا</div>
+<div class="box">💡 كل يوم فرصة جديدة</div>
+<div class="box">🧠 ثقي بنفسك، أنتِ تستحقين الأفضل</div>
+<div class="box">📿 لا تنسي ذكر الله، فيه راحة قلبك</div>
+<div class="box">✨ الصبر مفتاح الفرج</div>
+<div class="box">🚀 استمري، النجاح قريب</div>
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="azkar" class="screen">
+<h2>📿 الأذكار</h2>
+
+<div class="box">🌅 أذكار الصباح:<br>اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور</div>
+<div class="box">🌙 أذكار المساء:<br>اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير</div>
+<div class="box">🏠 دخول المنزل:<br>اللهم إني أسألك خير المولج وخير المخرج</div>
+<div class="box">🚪 الخروج من المنزل:<br>بسم الله توكلت على الله ولا حول ولا قوة إلا بالله</div>
+<div class="box">🕌 دخول المسجد:<br>اللهم افتح لي أبواب رحمتك</div>
+<div class="box">🚶‍♂️ الخروج من المسجد:<br>اللهم إني أسألك من فضلك</div>
+
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="hadith" class="screen">
+<h2>📖 الأحاديث</h2>
+
+<div class="box">الحديث 1:<br>إنما الأعمال بالنيات...<br><i>البخاري ومسلم</i></div>
+<div class="box">الحديث 2:<br>الإسلام أن تشهد أن لا إله إلا الله...<br><i>مسلم</i></div>
+<div class="box">الحديث 3:<br>بني الإسلام على خمس...<br><i>البخاري ومسلم</i></div>
+
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="notes" class="screen">
+<h2>💬 الفضفضة</h2>
+<textarea id="note"></textarea><br>
+<button onclick="saveNote()">حفظ</button>
+<p id="saved"></p>
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="settings" class="screen">
+<h2>⚙️ الإعدادات</h2>
+
+<input id="nameInput" placeholder="اسم التطبيق"><br>
+<button onclick="changeName()">تغيير الاسم</button><br><br>
+
+<button onclick="setPink()">🌸 وردي</button>
+<button onclick="setBlue()">💙 أزرق</button><br><br>
+
+<button onclick="toggleDark()">الوضع الليلي</button>
+
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="notifications" class="screen">
+<h2>🔔 الإشعارات</h2>
+
+<input type="time" id="notifTime"><br>
+<button onclick="saveTime()">حفظ الوقت</button>
+<p id="timeSaved"></p>
+
+<button onclick="back()">رجوع</button>
+</div>
+
+<div id="tasbih" class="screen">
+<h2>🔢 المسبحة</h2>
+
+<h3 id="zikr">سبحان الله</h3>
+<h1 id="count">0</h1>
+
+<button onclick="add()">تسبيح</button>
+<button onclick="reset()">إعادة</button>
+
+<button onclick="changeZikr('سبحان الله')">سبحان الله</button>
+<button onclick="changeZikr('الحمد لله')">الحمد لله</button>
+<button onclick="changeZikr('الله أكبر')">الله أكبر</button>
+
+<button onclick="back()">رجوع</button>
+</div>
+
+<script>
+
+// NAV
+function show(id){
+  document.getElementById("home").style.display="none";
+  document.querySelectorAll(".screen").forEach(s=>s.style.display="none");
+  document.getElementById(id).style.display="block";
+}
+
+function back(){
+  document.getElementById("home").style.display="block";
+  document.querySelectorAll(".screen").forEach(s=>s.style.display="none");
+}
+
+// ✅ FIX TASBIH
+let count = parseInt(localStorage.getItem("count")) || 0;
+
+function updateCount(){
+  document.getElementById("count").innerText = count;
+}
+
+updateCount();
+
+function add(){
+  count++;
+  updateCount();
+  localStorage.setItem("count", count);
+}
+
+function reset(){
+  count = 0;
+  updateCount();
+  localStorage.setItem("count", count);
+}
+
+function changeZikr(z){
+  document.getElementById("zikr").innerText = z;
+}
+
+// NOTES
+function saveNote(){
+  let n = document.getElementById("note").value;
+  localStorage.setItem("note", n);
+  document.getElementById("saved").innerText="تم الحفظ ✔";
+}
+
+// SETTINGS
+function changeName(){
+  let name=document.getElementById("nameInput").value;
+  document.getElementById("title").innerText="🌸 "+name+" 🐥";
+  localStorage.setItem("appName",name);
+}
+
+function setPink(){
+  document.body.style.background="#fff0f5";
+  localStorage.setItem("bg","pink");
+}
+
+function setBlue(){
+  document.body.style.background="#cce6ff";
+  localStorage.setItem("bg","blue");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+  localStorage.setItem("dark",document.body.classList.contains("dark"));
+}
+
+// NOTIF
+function saveTime(){
+  let t=document.getElementById("notifTime").value;
+  localStorage.setItem("time",t);
+  document.getElementById("timeSaved").innerText="تم الحفظ ✔";
+}
+
+// LOAD
+window.onload=function(){
+  document.getElementById("note").value=localStorage.getItem("note")||"";
+
+  let n=localStorage.getItem("appName");
+  if(n) document.getElementById("title").innerText="🌸 "+n+" 🐥";
+
+  let c=localStorage.getItem("bg");
+  if(c==="pink") document.body.style.background="#fff0f5";
+  if(c==="blue") document.body.style.background="#cce6ff";
+
+  if(localStorage.getItem("dark")==="true"){
+    document.body.classList.add("dark");
+  }
+
+  let t=localStorage.getItem("time");
+  if(t) document.getElementById("notifTime").value=t;
+
+  updateCount();
+}
+</script>
+
+</body>
+</html>

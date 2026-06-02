@@ -1,0 +1,13 @@
+{
+  "name": "MY Little Boost",
+  "short_name": "Boost",
+  "start_url": "/my-little-boost/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
